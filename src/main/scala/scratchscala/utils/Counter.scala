@@ -44,7 +44,7 @@ class Counter[T] private (val items: List[(T, Count)]) { //TODO: t210721091359 -
     
       val b = immutable.ListMap.newBuilder[K, Seq[V]]
       for ((k, v) <- m)
-        b += ((k, v.result.toList))
+        b += ((k, v.toList))
     
       b.result
     }

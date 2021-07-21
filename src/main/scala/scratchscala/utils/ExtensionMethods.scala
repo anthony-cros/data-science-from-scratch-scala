@@ -23,7 +23,7 @@ object ExtensionMethods { // note that many of those can be found in my utilitie
     def listToPair: (A, A) = { require(coll.size == 2, coll.size); (coll(0), coll(1)) } // aka listToTuple2
     
     // dearly missed in stdlib, along with countBys and ListMap's counterparts (that maintain insertion order)
-    def groupByKey[K, V](implicit ev: A <:< (K, V)): Map[K, List[V]] = coll.groupBy(_._1).mapValues(_.map(_._2))
+    def groupByKey[K, V](implicit ev: A <:< (K, V)): Map[K, List[V]] = coll.groupBy(_._1).mapValues(_.map(_._2)).toMap
 
     def zipSameSize[B](that: List[B])                       : List[(A, B)] = { require(coll.size == that.size, coll.size -> that.size);     coll.zip(that) }
     def zipSameSize[B](that: List[B], debug: List[_] => Any): List[(A, B)] = { require(coll.size == that.size, (debug(coll), debug(that))); coll.zip(that) }

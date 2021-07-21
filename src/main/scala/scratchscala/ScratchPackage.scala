@@ -13,8 +13,8 @@ package scratchscala {
     type ArrayBuffer[T] = collection.mutable.ArrayBuffer[T]
     val  ArrayBuffer    = collection.mutable.ArrayBuffer
   
-    type MutableList[T] = collection.mutable.MutableList[T]
-    val  MutableList    = collection.mutable.MutableList    
+    type MutableList[T] = collection.mutable.ArrayDeque[T]
+    val  MutableList    = collection.mutable.ArrayDeque    
       
     val Utils = utils.MiscUtils
 
@@ -28,7 +28,7 @@ package scratchscala {
     import me.shadaj.scalapy.py
     import me.shadaj.scalapy.py.SeqConverters
     import me.shadaj.scalapy.readwrite.Writer
-    // ---------------------------------------------------------------------------
+
     lazy val plt = py.module("matplotlib.pyplot")
 
     implicit def _toPythonProxy[T : Writer](values: Seq[T]): py.Any = values.toPythonProxy // for smoother integration with python

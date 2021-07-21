@@ -100,7 +100,7 @@ object GradientDescent {
     Range(0, 1000).map { epoch =>
         val grad = sum_of_squares_gradient(v)    // compute the gradient at v
         v = gradient_step(v, grad, -0.01)        // take a negative gradient step
-        print(epoch, v) }      
+        /*println(epoch, v)*/ }      
     assert(distance(v, List(0, 0, 0)) < 0.001)   // v should be close to 0)
 
     // First "Using Gradient Descent to Fit Models" example
@@ -116,7 +116,7 @@ object GradientDescent {
         
         // Take a step in that direction
         theta = gradient_step(theta.pairToList, grad, -learning_rate).listToPair
-        println(epoch, theta) }
+        /*println(epoch, theta)*/ }
     
     var slope     = theta._1
     var intercept = theta._2
@@ -132,7 +132,7 @@ object GradientDescent {
         minibatches(inputs, batch_size=20).foreach { batch =>            
             val grad = vector_mean(batch.map { case (x, y) => linear_gradient(x, y, theta.pairToList) })
             theta = gradient_step(theta.pairToList, grad, -learning_rate).listToPair }
-        println(epoch, theta) }
+        /*println(epoch, theta)*/ }
 
     slope     = theta._1
     intercept = theta._2
@@ -148,7 +148,7 @@ object GradientDescent {
         inputs.map { case (x, y) =>
             val grad = linear_gradient(x, y, theta.pairToList)
             theta = gradient_step(theta.pairToList, grad, -learning_rate).listToPair }
-        println(epoch, theta) }
+        /*println(epoch, theta)*/ }
     
     slope     = theta._1
     intercept = theta._2

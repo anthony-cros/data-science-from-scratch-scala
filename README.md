@@ -36,6 +36,15 @@ Not all chapters have been ported as I'm going through them in the order I need 
 27. Go Forth And Do Data Science
 
 
+## Running
+
+You can run the driver to exercise all classes with the following:
+
+```export SBT_OPTS="-Xmx8G -Xms8G"; sbt "runMain scratchscala.Driver"```
+
+Note that Python's `matplotlib` must be available system-wide (see [installation](https://matplotlib.org/stable/users/installing.html))
+
+
 ## Python integration
 
 The code uses the amazing [ScalaPy](https://scalapy.dev/) library developed by [Shadaj Laddad](https://www.shadaj.me),
@@ -47,9 +56,8 @@ It's notably used to call _matplotlib_ in the same way the book does, since repr
 
 ## Scala version
 
-The code uses Scala 2.12, which is very unfortunate since 2.13 has been out for a while now, and Scala just released the outstanding [3.0 version](https://www.scala-lang.org/blog/2021/05/14/scala3-is-here.html).
-
-The main reason is that aforementioned ScalaPy does not have
+The code uses Scala 2.13, despite the release of the outstanding [Scala 3.0](https://www.scala-lang.org/blog/2021/05/14/scala3-is-here.html),
+in part because _ScalaPy_ does not support it yet, but also because it represents a major change (for the better, but a disruptive change nonetheless).
 
 
 ## Utilities
@@ -61,12 +69,13 @@ as they correspond to features often missed in the standard library.
 
 ## Python vs Scala
 
-The scope of the book does not really allow comparing the two languages in general, and neither does the code in this repository. My personal take on "static vs dynamic" is best articulated in [this article](https://existentialtype.wordpress.com/2011/03/19/dynamic-languages-are-static-languages/) by Robert Harper. The Scala vs Python debate specifically is much more involved since their respective ecosystems matter tremendously.
+The scope of the book does not allow comparing the two languages in general, and neither does the code in this repository. My personal take on "static vs dynamic" is best articulated in [this article](https://existentialtype.wordpress.com/2011/03/19/dynamic-languages-are-static-languages/) by Robert Harper. The Scala vs Python debate specifically is much more involved since their respective ecosystems matter tremendously.
 
 A few things do stand out from the current repo:
-- Python offers some nice abstractions such as collections.Counter that Scala would benefit from porting.
-- Python oddly misses a built-in group-by mechanism, at least looking something like [this method](https://github.com/joelgrus/data-science-from-scratch/blob/d85ad71/scratch/decision_trees.py#L69-L73)
+- Python offers some nice abstractions such as `collections.Counter` that Scala would benefit from porting.
+- Python oddly misses a built-in group-by mechanism, at least when looking something like [this method](https://github.com/joelgrus/data-science-from-scratch/blob/d85ad71/scratch/decision_trees.py#L69-L73)
 - Scala has nice a great group-by mechanism but misses group-by-key, count-bys and ListMap-counterparts (ListMap is insertion-order preserving)
+
 
 ## Style
 
@@ -81,7 +90,7 @@ I tried as much as possible to maintain the original style, and not necessarily 
 
 ## Miscellaneous
 
-- I am also rewriting some examples in more idiosyncratic Scala, or at least in a format that I find easier to comprehend. I will port those soon as well.
+- I am also in the process of rewriting some examples in more idiosyncratic Scala, or at least in a format that I find easier to comprehend. I will port those soon as well.
 - Some of the code examples need a memory boost to run to completion, e.g. [KNearestNeighbor](./src/main/scala/scratchscala/12_KNearestNeighbors.scala) needs `-Xmx8g -Xms8g`
 - I have found at least two similar efforts using alternative technologies:
   - in [Swift](https://github.com/melling/data-science-from-scratch-swift)

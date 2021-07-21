@@ -141,11 +141,11 @@ object KNearestNeighbors { // use eg -Xmx8g -Xms8g
         .map { case (min_dist, avg_dist) =>
           min_dist / avg_dist }
         .toList
-    println(min_avg_ratio.mkString("\n"))
 
+    // note: was missing
     plt.close()
-    plt.plot(dimensions, min_avg_ratio) // note: was missing
-
+    plt.plot(dimensions, min_avg_ratio)
+    plt.savefig("./output/curse_of_dimensionality.png")
     // plt.show()
   }
 }

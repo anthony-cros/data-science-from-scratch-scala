@@ -240,13 +240,13 @@ object Clustering {
     val new_img = img.map { _.map(recolor) }
 
     plt.close()
-    {
-      import me.shadaj.scalapy.py.SeqConverters    
-      plt.imshow(new_img.toPythonCopy) // TODO: t210721090607 - not sure why toPythonProxy fails here
-    }
-    plt.axis("off")
-    // plt.show()
+    
+    import me.shadaj.scalapy.py.SeqConverters
+    plt.imshow(new_img.toPythonCopy) // TODO: t210721090607 - not sure why toPythonProxy fails here
 
+    plt.axis("off")    
+    // plt.show()
+    
     plt.savefig("./output/recolored_girl_with_book.jpg")
     plt.gca().clear()
 
