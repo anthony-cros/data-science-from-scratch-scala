@@ -4,7 +4,7 @@ import LinearAlgebra._
 import me.shadaj.scalapy.py  
 
 // ===========================================================================
-object KNearestNeighbors {
+object KNearestNeighbors { // use eg -Xmx8g -Xms8g
   
   def raw_majority_vote(labels: List[String]): String = 
     Counter(labels).most_common(1)(0)._1  

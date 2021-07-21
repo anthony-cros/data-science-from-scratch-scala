@@ -14,7 +14,7 @@ object Driver {
     /*  8 */ GradientDescent  .main(Array())      
     /* 11 */ MachineLearning       
     /* 12 */ KNearestNeighbors.main(Array())
-    /* 17 */ DecisionTree     .main(Array())
+    /* 17 */ DecisionTrees    .main(Array())
     /* 20 */ Clustering       .main(Array())
 
     println("done")

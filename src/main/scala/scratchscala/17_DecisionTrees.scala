@@ -1,7 +1,7 @@
 package scratchscala
 
 // ===========================================================================
-object DecisionTree {
+object DecisionTrees {
   
   /** Given a list of class probabilities, compute the entropy */
   def entropy(class_probabilities: List[Double]): Double =
